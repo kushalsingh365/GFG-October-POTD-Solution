@@ -1,0 +1,57 @@
+class Solution {
+  public:
+    int sumOfAll(int l, int r){
+        // code here
+        int arr[r+1]={0};
+
+       
+
+        for(int i=2; i<=r+1; i++){
+
+            if(arr[i]==0){
+
+                for(int j=i*i; j<=r+1; j+=i){
+
+                    arr[j]=1;
+
+                }
+
+            }
+
+        }
+
+        int sum=0;
+
+        
+
+        for(int i=l; i<=r; i++){
+
+            if(arr[i]==0){
+
+                sum+=i;
+
+        }
+
+        else{
+
+            for(int j=2; j<=i/2; j++){
+
+                if(arr[j]==0){
+
+                    if(i%j==0){
+
+                        sum+=j;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    return sum;
+    }
+};
